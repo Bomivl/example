@@ -9,7 +9,7 @@ namespace application\controllers;
  */
 class IndexController extends ParentController {
     
-    protected function mainAction(){
-        echo 'index';
-    }
+//    protected function mainAction(){
+//        echo 'index';
+//    }
 }

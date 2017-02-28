@@ -9,7 +9,10 @@ namespace application\controllers;
  */
 abstract class ParentController {
 
-    public function __construct($method) {
+    protected $fileModel;
+
+    public function __construct($method, $model) {
+        $this->fileModel = 'FileModel';
         if (method_exists($this, $method)) {
             $this->$method();
         } else {
@@ -18,7 +21,11 @@ abstract class ParentController {
     }
 
     protected function mainAction() {
-        echo 'parent';
+        if (class_exists('\application\models\\' . $this->fileModel, true)) {
+            echo "существует";
+        } else {
+            echo 'несуществует';
+        }
     }
 
 }

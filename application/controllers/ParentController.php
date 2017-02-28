@@ -12,7 +12,7 @@ abstract class ParentController {
     protected $fileModel;
 
     public function __construct($method, $model) {
-        $this->fileModel = 'FileModel';
+        $this->fileModel = $model;
         if (method_exists($this, $method)) {
             $this->$method();
         } else {
@@ -21,7 +21,7 @@ abstract class ParentController {
     }
 
     protected function mainAction() {
-        if (class_exists('\application\models\\' . $this->fileModel, true)) {
+        if (class_exists('\application\models\\' . $this->fileModel)) {
             echo "существует";
         } else {
             echo 'несуществует';

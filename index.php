@@ -5,7 +5,10 @@ use application\controllers\FrontController;
 error_reporting(-1);
 
 spl_autoload_register(function ($class) {
-    include __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
+    $file = __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
+    if (file_exists($file)) {
+        include $file;
+    }
 });
 
 $controller = FrontController::getInstance();

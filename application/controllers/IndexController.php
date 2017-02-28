@@ -7,18 +7,9 @@ namespace application\controllers;
  *
  * @author Михаил
  */
-class IndexController {
-
-    public function __construct($method) {
-        if (method_exists($this, $method)) {
-            $this->$method();
-        } else {
-            $this->mainAction();
-        }
+class IndexController extends ParentController {
+    
+    protected function mainAction(){
+        echo 'index';
     }
-
-    private function mainAction() {
-        echo 'WORK';
-    }
-
 }

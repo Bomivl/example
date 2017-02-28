@@ -31,15 +31,16 @@ class FrontController {
     }
 
     private function exists($data) {
-        $class = '\application\controllers\\' . $data;
-        if (!class_exists($class)) {
-            $className = '\application\controllers\\' . 'IndexController';
+        if (file_exists('application/controllers/' . $data . '.php')) {
+            $class = '\application\controllers\\' . $data;
+        }else{
+            $class = '\application\controllers\IndexController';
         }
         $cont = new $class;
         if (!method_exists($cont, $this->action)) {
             $this->action = strtolower($this->controller) . 'Action';
-            return $cont->{$this->action}();
         }
+        return $cont->{$this->action}();
     }
 
 }

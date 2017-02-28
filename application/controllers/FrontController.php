@@ -2,11 +2,6 @@
 
 namespace application\controllers;
 
-/**
- * Description of FrontController
- *
- * @author Михаил
- */
 class FrontController {
 
     private $controller, $action;
@@ -25,7 +20,9 @@ class FrontController {
         $this->action = !empty($route[1]) ? strtolower($route[1]) . 'Action' : $this->controller . 'Action';
         $this->route();
     }
+
     private function route() {
         
     }
+
 }

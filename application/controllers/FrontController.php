@@ -22,7 +22,7 @@ class FrontController {
     }
 
     private function route() {
-        
+        echo true;
     }
 
 }

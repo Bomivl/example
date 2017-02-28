@@ -9,4 +9,10 @@ namespace application\controllers;
  */
 class IndexController {
     //put your code here
+    public function indexAction(){
+        echo 'WORK';
+    }
+    public function test(){
+        echo 'asd';
+    }
 }

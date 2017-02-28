@@ -17,8 +17,8 @@ class FrontController {
     private function __construct() {
         $route = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
         $this->controller = !empty($route[0]) ? ucfirst(strtolower($route[0])) : 'Index';
-        $this->action = !empty($route[1]) ? strtolower($route[1]) . 'Action' : $this->controller . 'Action';
-        $this->model = $this->controller . 'Model';
+        $this->action = !empty($route[1]) ? strtolower($route[1]) . 'Action' : strtolower($this->controller) . 'Action';
+        //$this->model = $this->controller . 'Model';
         $this->route();
     }
 
@@ -27,15 +27,19 @@ class FrontController {
             echo $k . '=>' . $v . '<br>';
         }
         $controller = $this->controller . 'Controller';
-        if(class_exists($controller)){
-            echo "ASDASDASDASD";
-        }
+        $this->exists($controller);
     }
 
     private function exists($data) {
-//        echo '\application\controllers' . $data;
-//        if (!class_exists("\application\controllers$data"))
-//            return true;
+        $class = '\application\controllers\\' . $data;
+        if (!class_exists($class)) {
+            $className = '\application\controllers\\' . 'IndexController';
+        }
+        $cont = new $class;
+        if (!method_exists($cont, $this->action)) {
+            $this->action = strtolower($this->controller) . 'Action';
+            return $cont->{$this->action}();
+        }
     }
 
 }

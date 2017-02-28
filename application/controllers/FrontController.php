@@ -4,7 +4,7 @@ namespace application\controllers;
 
 class FrontController {
 
-    private $controller, $action, $model;
+    private $controller, $action, $model, $content;
     static private $instance;
 
     public static function getInstance() {
@@ -34,6 +34,14 @@ class FrontController {
             $class = '\application\controllers\IndexController';
         }
         return new $class($this->action, $this->model);
+    }
+
+    public function setContent($content) {
+        $this->content = $content;
+    }
+
+    private function getContent() {
+        return $this->content;
     }
 
 }

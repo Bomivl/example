@@ -13,14 +13,17 @@ abstract class ParentController {
 
     public function __construct($method, $model) {
         $this->fileModel = $model;
-        method_exists($this, $method) ? $this->$method() : $this->mainAction();
+        method_exists($this, $method) ? $this->$method($method) : $this->mainAction($method);
     }
 
-    protected function mainAction() {
+    protected function mainAction($method) {
         if (class_exists('\application\models\\' . $this->fileModel)) {
-            $this->fileModel;
+            echo 'Позже';
         } else {
-            echo $this->fileModel;
+            $output = new \application\models\FileModel($method);
+            var_dump($output);
+            //$content = FrontController::getInstance();
+            //$content->setContent($output);
         }
     }
 

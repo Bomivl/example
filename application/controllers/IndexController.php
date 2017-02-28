@@ -9,7 +9,8 @@ namespace application\controllers;
  */
 class IndexController extends ParentController {
     
-//    protected function mainAction(){
-//        echo 'index';
+//    protected function mainAction($method){
+//        parent::mainAction($method);
+//        var_dump($output);
 //    }
 }

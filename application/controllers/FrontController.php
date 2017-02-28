@@ -31,7 +31,7 @@ class FrontController {
     }
 
     private function exists($data) {
-        if (file_exists('application/controllers/' . $data . '.php')) {
+        if (file_exists(__DIR__.'/application/controllers/' . $data . '.php')) {
             $class = '\application\controllers\\' . $data;
         }else{
             $class = '\application\controllers\IndexController';

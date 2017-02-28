@@ -23,24 +23,17 @@ class FrontController {
     }
 
     private function route() {
-        foreach ($this as $k => $v) {
-            echo $k . '=>' . $v . '<br>';
-        }
         $controller = $this->controller . 'Controller';
         $this->exists($controller);
     }
 
     private function exists($data) {
-        if (file_exists(__DIR__.'/application/controllers/' . $data . '.php')) {
+        if (file_exists(__DIR__ . '/application/controllers/' . $data . '.php')) {
             $class = '\application\controllers\\' . $data;
-        }else{
+        } else {
             $class = '\application\controllers\IndexController';
         }
-        $cont = new $class;
-        if (!method_exists($cont, $this->action)) {
-            $this->action = strtolower($this->controller) . 'Action';
-        }
-        return $cont->{$this->action}();
+        $cont = new $class($this->action);
     }
 
 }

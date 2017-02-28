@@ -13,7 +13,6 @@ class FileModel {
 
     public function __construct($action) {
         $content = str_replace('Action', '', $action).'_view.php';
-        //$mainView = $this->mainView;
         include_once __DIR__.'/../views/'.$this->mainView;
     }
 

@@ -1,7 +1,8 @@
 <?php
 
 use application\controllers\FrontController;
-use application\controllers\IndexController;
+
+error_reporting(-1);
 
 spl_autoload_register(function ($class) {
     include __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';

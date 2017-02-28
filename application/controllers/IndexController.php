@@ -8,18 +8,17 @@ namespace application\controllers;
  * @author Михаил
  */
 class IndexController {
-    //put your code here
+
     public function __construct($method) {
-        if(method_exists($this, $method)){
-            echo $method.' существует';
-        }else{
-            echo 'перенаправление на main';
+        if (method_exists($this, $method)) {
+            $this->$method();
+        } else {
+            $this->mainAction();
         }
     }
-    public function mainAction(){
+
+    private function mainAction() {
         echo 'WORK';
     }
-    public function test(){
-        echo 'asd';
-    }
+
 }

@@ -9,13 +9,12 @@ namespace application\models;
  */
 class FileModel {
 
-    protected $mainView = 'main_views.php';
+    public $mainView = 'main_views.php';
 
     public function __construct($action) {
         $content = str_replace('Action', '', $action).'_view.php';
-        ob_start();
-        include __DIR__.'/../views/'.$this->mainView;
-        return ob_get_clean();
+        //$mainView = $this->mainView;
+        include_once __DIR__.'/../views/'.$this->mainView;
     }
 
 }

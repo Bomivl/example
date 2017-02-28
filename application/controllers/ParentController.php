@@ -21,9 +21,8 @@ abstract class ParentController {
             echo 'Позже';
         } else {
             $output = new \application\models\FileModel($method);
-            var_dump($output);
-            //$content = FrontController::getInstance();
-            //$content->setContent($output);
+//            $content = FrontController::getInstance();
+//            $content->setContent($output);
         }
     }
 

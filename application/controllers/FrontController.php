@@ -28,7 +28,7 @@ class FrontController {
     }
 
     private function exists($data) {
-        if (class_exists('\application\controllers\\' . $data)) {
+        if (class_exists('\application\controllers\\' . $data) && $data != 'ParentController') {
             $class = '\application\controllers\\' . $data;
         } else {
             $class = '\application\controllers\IndexController';

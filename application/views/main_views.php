@@ -10,7 +10,7 @@
         </div>
         <div id="content">
             <h1>Добро пожаловать!</h1>
-            <?php include ($content) ?>
+            <?php include $content ?>
         </div>
         <div id="nav">
             <h2>Навигация по сайту</h2>

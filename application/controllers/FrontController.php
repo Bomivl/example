@@ -32,6 +32,7 @@ class FrontController {
             $class = '\application\controllers\\' . $data;
         } else {
             $class = '\application\controllers\IndexController';
+            $this->action = 'IndexAction';
         }
         return new $class($this->action, $this->model);
     }

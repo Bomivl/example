@@ -20,9 +20,8 @@ abstract class ParentController {
         if (class_exists('\application\models\\' . $this->fileModel)) {
             echo 'Позже';
         } else {
-            $test = get_class($this);
-            $arr = explode('\\', $test);
-            $method = $arr[count($arr)-1];
+            $arr = explode('\\', get_class($this));
+            $method = str_replace('Controller', '', $arr[count($arr) - 1]) . '_view.php';
             $output = new \application\models\FileModel($method);
         }
     }

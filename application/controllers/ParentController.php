@@ -22,8 +22,8 @@ abstract class ParentController {
             echo 'Позже';
         } else {
             $arr = explode('\\', get_class($this));
-            $method = str_replace('Controller', '', $arr[count($arr) - 1]) . '_view.php';
-            $output = new \application\models\FileModel($method, $this->title);
+            $action = str_replace('Controller', '', $arr[count($arr) - 1]) . '_view.php';
+            $output = new \application\models\FileModel($action, $this->title);
         }
     }
 

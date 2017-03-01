@@ -14,5 +14,7 @@ namespace application\controllers;
  * @author Михаил
  */
 class AboutController extends ParentController {
-    
+
+    protected $title = 'О нас';
+
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Просто сайт</title>
+        <title><?=$title?></title>
         <link rel="stylesheet" type="text/css" href="/style.css" />
     </head>
     <body>

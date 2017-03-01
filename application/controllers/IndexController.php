@@ -9,6 +9,9 @@ namespace application\controllers;
  */
 class IndexController extends ParentController {
     
+    protected $title = 'Главная';
+
+
 //    protected function mainAction($method){
 //        parent::mainAction($method);
 //        var_dump($output);

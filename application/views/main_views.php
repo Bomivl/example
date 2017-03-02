@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title><?=$title?></title>
+        <title><?= $title ?></title>
         <link rel="stylesheet" type="text/css" href="/style.css" />
+        <script type="text/javascript" src="/jquery/jquery.js"></script>
     </head>
     <body>
         <div id="header">
@@ -18,6 +19,7 @@
                 <li><a href='/index'>Домой</a></li>
                 <li><a href='/about'>О нас</a></li>
                 <li><a href='/contact'>Контакты</a></li>
+                <li><a href='/ajax'>AJAX</a></li>
             </ul>
         </div>
     </body>

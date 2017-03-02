@@ -19,7 +19,10 @@ abstract class ParentController {
 
     protected function mainAction($method) {
         if (class_exists('\application\models\\' . $this->fileModel)) {
-            echo 'Позже';
+            $fileModel = '\application\models\\' . $this->fileModel;
+            $arr = explode('\\', get_class($this));
+            $action = str_replace('Controller', '', $arr[count($arr) - 1]) . '_view.php';
+            new $fileModel($action, $this->title);
         } else {
             $arr = explode('\\', get_class($this));
             $action = str_replace('Controller', '', $arr[count($arr) - 1]) . '_view.php';
